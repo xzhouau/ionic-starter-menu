@@ -1,0 +1,17 @@
+<ion-view title="Menu">
+	<ion-content ng-controller="MenuController">
+		<div class="row" ng-repeat="menu in menus" ng-init="menuIndex = $index" ng-if="$index % itemsPerRow === 0">
+			<ion-list type="card" ng-repeat="n in [] | range: itemsPerRow" ng-if="menuIndex + n < menus.length">
+				<ion-item>
+					<h2>{{menus[menuIndex + n].label}}</h2>
+				</ion-item>
+				<ion-item class="item-image">
+					<img ng-src="{{menus[menuIndex + n].images[0]}}">
+				</ion-item>
+				<ion-item>
+					<p>{{menus[menuIndex + n].description}}</p>
+				</ion-item>
+			</ion-list>
+		</div>
+	</ion-content>
+</ion-view>
